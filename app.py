@@ -13,7 +13,6 @@ from greengrass_private_network.greengrass_private_network_stack import (
     GreengrassPrivateNetworkStack,
 )
 
-
 # Cannot look up VPC endpoint availability zones if account/region are not specified
 
 app = cdk.App()
@@ -24,6 +23,9 @@ stack = GreengrassPrivateNetworkStack(
         account=os.environ.get("CDK_DEPLOY_ACCOUNT"),
         region=os.environ.get("CDK_DEPLOY_REGION"),
     ),
+    description="This stack deploys a private Amazon VPC with VPC endpoints and a Tinyproxy for running AWS IOT "
+                "Greengrass that keeps network traffic off of the public internet, but does allow access to pubilc "
+                "endpoints through an allowlist."
 )
 Aspects.of(app).add(AwsSolutionsChecks())
 NagSuppressions.add_stack_suppressions(stack, suppressions=[
