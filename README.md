@@ -39,6 +39,9 @@ Amazon Virtual Private Cloud (VPC), Amazon Elastic Compute Cloud (EC2), AWS IOT 
 
 ## Setup
 
+Note that this has been tested on macOS. It should run without changes on Mac or Linux. On Windows, you may need to
+make slight modifications.
+
 Clone a copy of the repository.
 
 ```bash
