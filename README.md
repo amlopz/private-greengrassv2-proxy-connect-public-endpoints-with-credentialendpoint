@@ -35,7 +35,7 @@ Amazon Virtual Private Cloud (VPC), Amazon Elastic Compute Cloud (EC2), AWS IOT 
 
 Verify your tools and account.
 ```bash
-python --version
+python3 --version
 jq --version 
 aws --version
 cdk --version
