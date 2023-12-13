@@ -26,12 +26,12 @@ highly available.
 Make sure you have the following tools installed, and an AWS account with permissions for Amazon Route53,
 Amazon Virtual Private Cloud (VPC), Amazon Elastic Compute Cloud (EC2), AWS IOT Core, and AWS IOT Greengrass.
 
-1. An [AWS Account](https://aws.amazon.com/resources/create-account/) with credentials
+1. The [Python](https://www.python.org/downloads/) runtime, 3.9 or greater
+1. The [JQ](https://jqlang.github.io/jq/) CLI
+1. The [AWS CLI](https://aws.amazon.com/cli/) version 2
+1. The [AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html) CLI
+1. 1. An [AWS Account](https://aws.amazon.com/resources/create-account/) with credentials
    for [CLI access](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
-2. The [Python](https://www.python.org/downloads/) runtime, 3.9 or greater
-3. The [JQ](https://jqlang.github.io/jq/) CLI
-4. The [AWS CLI](https://aws.amazon.com/cli/) version 2
-5. The [AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html) CLI
 
 ## Architecture
 
