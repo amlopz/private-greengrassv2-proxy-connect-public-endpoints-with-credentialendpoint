@@ -33,6 +33,15 @@ Amazon Virtual Private Cloud (VPC), Amazon Elastic Compute Cloud (EC2), AWS IOT 
 1. An [AWS Account](https://aws.amazon.com/resources/create-account/) with credentials
    for [CLI access](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
 
+Verify your tools and account.
+```bash
+python --version
+jq --version 
+aws --version
+cdk --version
+aws sts get-caller-identity | jq -r .Arn
+```
+
 ## Architecture
 
 ![Architecture Diagram](architecture.png)
