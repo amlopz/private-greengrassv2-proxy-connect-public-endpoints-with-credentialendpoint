@@ -30,7 +30,7 @@ Amazon Virtual Private Cloud (VPC), Amazon Elastic Compute Cloud (EC2), AWS IOT 
 1. The [JQ](https://jqlang.github.io/jq/) CLI
 1. The [AWS CLI](https://aws.amazon.com/cli/) version 2
 1. The [AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html) CLI
-1. 1. An [AWS Account](https://aws.amazon.com/resources/create-account/) with credentials
+1. An [AWS Account](https://aws.amazon.com/resources/create-account/) with credentials
    for [CLI access](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
 
 ## Architecture
