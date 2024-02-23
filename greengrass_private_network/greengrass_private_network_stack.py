@@ -287,6 +287,15 @@ class GreengrassPrivateNetworkStack(Stack):
         )
         cdk.Tags.of(greengrass_endpoint).add("Name", "greengrass-endpoint")
 
+        credentials_endpoint = gg_vpc.add_interface_endpoint(
+            "IoTCredentialEndpoint",
+            service=ec2.InterfaceVpcEndpointAwsService("iot.credentials", port=443),
+            private_dns_enabled=True,
+            security_groups=[endpoints_sg],
+            lookup_supported_azs=True,
+        )
+         cdk.Tags.of(iot_credential_endpoint).add("Name", "iot-credential-endpoint")
+
         s3_endpoint = gg_vpc.add_interface_endpoint(
             "S3Endpoint",
             service=ec2.InterfaceVpcEndpointAwsService("s3", port=443),
@@ -399,6 +408,29 @@ class GreengrassPrivateNetworkStack(Stack):
                 targets.InterfaceVpcEndpointTarget(iot_core_endpoint)
             ),
             record_name=iot_endpoint_address,
+        )
+
+        #Credential endpoint Hosted Zone
+        #edit this first line with the proper endpoint type - i think it is credential but need to check
+        iot_credential_endpoint = iot_client.describe_endpoint(endpointType="iot:CredentialProvider")
+        iot_credential_endpoint_address = iot_credential_endpoint["endpointAddress"]
+
+        # IoT Core endpoint
+        hosted_zone = route53.HostedZone(
+            self,
+            "IotCredentialHostedZone",
+            zone_name=iot_credential_endpoint_address,
+            vpcs=[gg_vpc],
+        )
+
+        route53.ARecord(
+            self,
+            "IotCredentialRecord",
+            zone=hosted_zone,
+            target=route53.RecordTarget.from_alias(
+                targets.InterfaceVpcEndpointTarget(iot_credential_endpoint)
+            ),
+            record_name=iot_credential_endpoint_address,
         )
 
         # Greengrass-ats Hosted Zone
